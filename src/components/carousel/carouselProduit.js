@@ -31,7 +31,7 @@ responsive={responsive}
 // showDots={true}
 >
 { articles
-.filter((article) => (selectedSCategory ? article.scategorieID._id ===
+.filter((article) => (selectedSCategory ? article.scategorieID?._id ===
 selectedSCategory._id : true))
 .map((element) => (
 < div key={element._id}>
