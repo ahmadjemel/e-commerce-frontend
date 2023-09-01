@@ -14,26 +14,30 @@ import Logout from "./admin/Logout";
 import Register from "./admin/Register";
 import ProtectedRoutes from "./admin/ProtectedRoutes";
 import Nopage from './admin/Nopage';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { isLoggedIn } = useSelector((state) => state.auth)
   return (
     <div className="App">
       <ToastContainer />
 
       <Router>
+      {/* {isLoggedIn? <NavScroll /> :<Login/> } */}
         <Routes>
 
-          <Route path="/menu" element={<NavScroll />} />
+        <Route path='/' element={<Listarticles />} ></Route>
+        <Route path="/menu" element={<NavScroll />} />
 
 
           <Route element={<ProtectedRoutes />}>
-            {/* <Route path='/' element={<Listarticles />} ></Route> */}
-            <Route path='/articles' element={<Listarticles />} ></Route>
             <Route path='/cart' element={<Cart />} />
             <Route path='/pay/:total' element={<StripePayment />} />
             <Route path="/checkout" element={<CheckoutSuccess />} />
             <Route path="/pdfcart" element={<PdfCart />} />
             <Route path='/articlesadmin' element={<ProductsAppAdmin />} />
+         
+
           </Route>
 
 
@@ -41,8 +45,6 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/*" element={<Nopage />} />
-
-
 
         </Routes>
       </Router>

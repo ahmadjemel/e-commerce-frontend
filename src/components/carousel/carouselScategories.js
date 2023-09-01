@@ -30,7 +30,7 @@ responsive={responsive}
 // showDots={true}
 >
 { scategories
-.filter((scategories) => (selectedCategory ? scategories?.categorieID ===
+.filter((scategories) => (selectedCategory ? scategories?.categorieID._id ===
 selectedCategory?._id : true))
 .map((element) => (
 <div key={element._id} onClick={()=>setSCateg(element)}

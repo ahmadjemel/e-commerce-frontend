@@ -35,7 +35,7 @@ function StripePayment() {
         console.log(JSON.stringify(token))
         try {
             const response = await axios({
-                url: 'https://e-commerce-backend-mu.vercel.app/api/payment',
+                url: 'https://back-react.vercel.app/api/payment',
                 
             //   url: 'http://localhost:4002/api/payment',
                 method: 'post',

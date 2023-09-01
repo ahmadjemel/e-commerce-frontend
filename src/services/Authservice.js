@@ -1,5 +1,5 @@
 import Api from '../Axios/Api';
-const USER_API="/users";
+const USER_API="/user";
 
 export const signup =async(user)=> {
 return await Api.post(USER_API + "/register",user);

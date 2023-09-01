@@ -1,6 +1,8 @@
 import axios from "axios";
-
-axios.defaults.baseURL = 'https://backend-ecommerce-2023.vercel.app/api';
+//axios.defaults.baseURL ='https://backend-final-ashen.vercel.app/api/';
+// axios.defaults.baseURL = 'https://backend-ecommerce-2023-4wuf8jnhy-ahmadjemel.vercel.app/api/'; (x)
+//axios.defaults.baseURL = 'http://localhost:4000/api/';'
+axios.defaults.baseURL ='https://back-react.vercel.app/api/';
 
 export function getAxiosInstance() {
     if (axios === null) {
@@ -36,7 +38,11 @@ export function getAxiosInstance() {
         let refreshToken = localStorage.getItem('refresh_token');
         if(refreshToken && refreshToken !== ""){
         return axios
-        .post('https://backend-ecommerce-2023.vercel.app/api/users/refreshToken/', {refreshToken:refreshToken})
+     
+        .post('https://back-react.vercel.app/api/refreshToken/', {refreshToken:refreshToken})
+
+    //.post('http://localhost:4000/api/refreshToken/', {refreshToken:refreshToken})
+
         .then(res => {
         
         if (res.status === 200) {
@@ -44,9 +50,7 @@ export function getAxiosInstance() {
         localStorage.setItem('CC_Token', res.data.token);
         localStorage.setItem('refresh_token', res.data.refreshToken);
         // 2) Change Authorization header
-        axios.defaults.headers.common['Authorization'] = 'Bearer ' +
-        
-        localStorage.getItem('CC_Token');
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('CC_Token');
         
         // 3) return originalRequest object with Axios.
         return axios(originalRequest);

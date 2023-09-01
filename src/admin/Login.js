@@ -40,14 +40,14 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // redirect authenticated user to home
+  /*   // redirect authenticated user to home
     useEffect(() => {
         if (isLoggedIn) {
             navigate('/menu')
         }
     }, [navigate, isLoggedIn])
-
-    const handleSubmit = (event) => {
+ */
+    const handleSubmit =(event) => {
         event.preventDefault();
         const objetuser = {
             email: email,
